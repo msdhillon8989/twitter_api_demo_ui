@@ -1,9 +1,9 @@
 // create the controller and inject Angular's $scope
 demo_app.controller('dashboardController', function ($scope, $location, $window, $http, $mdToast) {
 
-    var realServer = "https://puzzzle-api.herokuapp.com/slide";
+    var realServer = "https://mutual-twitter-friends-api.herokuapp.com/twitter/mutual?";
     var localServer = "http://localhost:8080/twitter/mutual?";
-    var server = localServer;
+    var server = realServer;
     $scope.error = false;
     $scope.wait = false;
 
