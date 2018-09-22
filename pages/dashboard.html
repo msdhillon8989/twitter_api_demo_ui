@@ -1,0 +1,56 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <span class="navbar-brand">Twitter mutual friends</span>
+        </div>
+    </div>
+</nav>
+
+
+<div flex-offset="0" flex="100" layout="column">
+    <div layout="row" flex="100" layout-align="space-around start">
+        <md-input-container>
+            <label>Username1</label>
+            <input ng-model="user1">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Username2</label>
+            <input ng-model="user2">
+        </md-input-container>
+
+        <md-button ng-hide="wait" ng-click="getMutualFriends()" class="md-raised md-primary">Find Mutual</md-button>
+        <md-progress-circular ng-show="wait" md-mode="indeterminate"></md-progress-circular>
+
+    </div>
+    <div class="alert alert-danger" ng-show="error">
+        <strong>{{error}}</strong>
+    </div>
+
+    <md-grid-list
+
+            md-cols-xs="1"
+            md-cols-sm="2"
+            md-cols="4"
+
+            md-row-height="5:1"
+            md-gutter="2px">
+
+        <!--ng-class="{'green' : i % 2 == 1 ,'blue' : i % 2 == 0 }"-->
+        <md-grid-tile ng-repeat="user in users">
+
+            <div layout="row" flex="50" layout-align="space-between stretch">
+                <div flex="40"><img src='{{user.profile_image_url}}'></div>
+                <div flex="60" layout="column" layout-align="start stretch">
+                    <span class="md-subhead">{{user.name}}</span>
+                    <span class="md-subhead">@{{user.screen_name}}</span>
+                </div>
+            </div>
+
+
+        </md-grid-tile>
+
+
+    </md-grid-list>
+</div>
+
