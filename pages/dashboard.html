@@ -8,7 +8,7 @@
 
 
 <div flex-offset="0" flex="100" layout="column">
-    <div layout="row" flex="100" layout-align="space-around start">
+    <div layout="column" flex="100" layout-align="space-around center" layout-gt-md="row">
         <md-input-container>
             <label>Username1</label>
             <input ng-model="user1">
@@ -28,29 +28,23 @@
     </div>
 
     <md-grid-list
-
             md-cols-xs="1"
             md-cols-sm="2"
-            md-cols="4"
-
-            md-row-height="5:1"
-            md-gutter="2px">
-
+            md-cols-md="3"
+            md-cols-gt-md="4"
+            md-row-height="4:1"
+            md-gutter="1px">
         <!--ng-class="{'green' : i % 2 == 1 ,'blue' : i % 2 == 0 }"-->
         <md-grid-tile ng-repeat="user in users">
 
-            <div layout="row" flex="50" layout-align="space-between stretch">
-                <div flex="40"><img src='{{user.profile_image_url}}'></div>
-                <div flex="60" layout="column" layout-align="start stretch">
+            <div layout="row"  layout-align="start center" style="padding: 5px;height: 100%;width: 100%">
+                <div style="padding: 5px"><img src='{{user.profile_image_url}}'></div>
+                <div layout="column" layout-align="start stretch">
                     <span class="md-subhead">{{user.name}}</span>
                     <span class="md-subhead">@{{user.screen_name}}</span>
                 </div>
             </div>
-
-
         </md-grid-tile>
-
-
     </md-grid-list>
 </div>
 
